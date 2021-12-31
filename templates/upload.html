@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}Upload Board{% endblock %}
+
+{% block html_head %}{% endblock %}
+
+{% block main %}
+  <div class="container">
+    <!--<p>Upload board code from "Solve" or upload image of sudoku board.</p>-->
+    <!--<p>If you select "for solve" option, you will be redirected to a solved board, while if you choose the "for play" option, you will be taken to the play screen to solve the board by yourself.</p>-->
+    <p>Upload board code from "Solve" or "Play"</p>
+    <p>If you select "for solve" option, you will be redirected to a solved board, while if you choose the "for play" option, you will be taken to the play screen to solve the board by yourself.</p>
+    <br>
+    <div name="upload-code">
+      <form method="post" action="/upload" name="code-form">
+        <p><b>Upload Code:</b></p>
+        <!--<input type="hidden" name="type" values="code">-->
+        <input name="code" type="text" maxlength="6" autocomplete="off" placeholder="Board Code">
+        <br>
+        <br>
+        <p style="display: inline-block;">Choose whether you want to solve board or play board: </p>
+        <select name="type" style="display: inline-block;">
+          <option value="play">For Play</option>
+          <option value="solve">For Solve</option>
+        </select>
+        <br>
+        <br>
+        <button type="submit">Load Board</button>
+      </form>
+    </div>
+    <!--<br>-->
+    <!--<div name="upload-image">-->
+    <!--  <form method="post" action="/upload" name="image-form">-->
+    <!--    <p style="display: inline-block;"><b>Upload Image:</b></p>-->
+    <!--    <input type="file" name="image" accept="image/*">-->
+    <!--    <br>-->
+    <!--    <button type="submit">Load Board</button>-->
+    <!--  </form>-->
+    <!--</div>-->
+  </div>
+{% endblock %}

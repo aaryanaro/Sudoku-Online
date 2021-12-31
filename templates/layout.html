@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<!--Source: https://gist.github.com/thebinarypenguin/4d45ffe87096e508800b5d11544bf2fa-->
+
+<html lang="en">
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/icon.ico" rel="icon">
+    <link href="/static/styles.css" rel="stylesheet">
+    {% block html_head %}{% endblock %}
+  </head>
+  <body>
+    <!--Navigation Bar-->
+    <ul class="navbar">
+      <a class="navbar-brand" href="/" style="float: left;">Sudoku Online</a>
+      <li><a href="/solve" style="float: right;" class="nav-link">Solve</a></li>
+      <li><a href="/play" style="float: right;" class="nav-link">Play</a></li>
+      <li><a href="/upload" style="float: right;" class="nav-link">Upload</a></li>
+    </ul>
+    <br>
+    
+    <!--Main Block-->
+    {% block main %}{% endblock %}
+    
+    <!--Get Flashed Messages-->
+    {% block content %}
+    <div class="container">
+        {% for message in get_flashed_messages() %}
+        <br>
+        <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message }}
+        </div>
+        {% endfor %}
+    
+        {% block page_content %}{% endblock %}
+    </div>
+    {% endblock %}
+  </body>
+</html>

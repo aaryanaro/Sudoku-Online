@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}Sudoku Solver{% endblock %}
+
+{% block html_head %}
+  <link href="/static/solved-sudoku.css" rel="stylesheet">
+{% endblock %}
+
+{% block main %}
+  <div class="container">
+    <table id="grid" class="center">
+      {% for i in range(9) %}
+        <tr>
+          {% for j in range(9) %}
+              
+            {% if 9*i + j in givens %} 
+                  
+              <td id="cell-{{ 9*i + j }}" class="given">{{ board[i][j] }}</td>
+                  
+            {% else %}
+                  
+              <td id="cell-{{ 9*i + j }}">{{ board[i][j] }}</td>
+                      
+            {% endif %}
+              
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </table>
+    
+    <br>
+    <div style="text-align: center; margin-bottom: 10px;">
+      <form action="/solve" method="post">
+        <button type="submit" value="unsolve" name="submit">Unsolve</button>
+        <button type="submit" value="reset" name="submit">Reset</button>
+      </form>
+    </div>
+    <p style="text-align: center; font-size: 13px;">Solved!</p>
+    <p style="text-align: center; font-size: 13px;">Board Code: {{ code }}</p>
+  </div>
+{% endblock %}

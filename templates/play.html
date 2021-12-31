@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ level }} Sudoku{% endblock %}
+
+{% block html_head %}
+  <link href="/static/solve-sudoku.css" rel="stylesheet">
+  <link href="/static/dropdown.css" rel="stylesheet">
+{% endblock %}
+
+{% block main %}
+  <div id="main">
+    <!--Sudoku Board-->
+    <div>
+      <table class="center" style="border: solid #f2f6e9;">
+        <tr style="border: solid #f2f6e9;">
+          <td style="padding: 10px; border: solid #f2f6e9;">
+            <form action="/play/{{ level.lower() }}" method="post" autocomplete="off" name="sudoku-board" id="sudoku-board">
+              <table id="grid" class="center">
+                  {% for i in range(9) %}
+                    <tr>
+                      {% for j in range(9) %}
+                        <td>
+                          {% if board[i][j] != 0 %}
+                            
+                            {% if 9*i + j in givens %}
+                            
+                              <input id="cell-{{ 9*i + j }}" name="{{ 9*i + j }}" value="{{ board[i][j] }}" type="text" disabled>
+                            
+                            {% else %}
+                            
+                              <input id="cell-{{ 9*i + j }}" name="{{ 9*i + j }}" value="{{ board[i][j] }}" type="text">
+                              
+                            {% endif %}
+                            
+                          {% else %}
+                            
+                            <input id="cell-{{ 9*i + j }}" name="{{ 9*i + j }}" type="text" maxlength="1">
+                          
+                          {% endif %}
+                        </td>
+                      {% endfor %}
+                    </tr>
+                  {% endfor %}
+              </table>
+              <br>
+              <p style="text-align: center;">
+                <button type="submit" style="display: inline-block" value="check" name="submit">Check</button>
+                <button type="submit" style="display: inline-block" value="clear" name="submit">Reset</button>
+              </p>
+              <p style="text-align: center; font-size: 13px;">{{ footer_message }}</p>
+              <br>
+              <br>
+              <p style="text-align: center; font-size: 13px;">Boards Provided by the <a href="https://www.menneske.no/sudoku/eng/">Menneske Sudoku Database</a></p>
+            </form>
+          </td>
+          <td style="padding: 10px;">
+            <div name="game-control" style="margin: 0; padding: 0; display: inline-block; margin-bottom: 150px;">
+              <p>
+                <form action="/play/{{ level.lower() }}" method="post">
+                  <button type="submit" value="save" name="submit" form="sudoku-board" style="margin-bottom: 10px;">Save Game</button>
+                  <br>
+                  <button type="submit" value="solution" name="submit" form="sudoku-board" style="margin-bottom: 10px;">See Answer</button>
+                  <br>
+                </form>
+                <!--Source: https://blog.hubspot.com/website/html-dropdown-->
+                <div class="dropdown">
+                  <button type="">New Board</button>
+                  <div class="dropdown-content">
+                    <a href="/play/easy">Easy</a>
+                    <a href="/play/medium">Medium</a>
+                    <a href="/play/hard">Hard</a>
+                  </div>
+                </div>
+              </p>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}Sudoku Solver{% endblock %}
+
+{% block html_head %}
+  <link href="/static/solve-sudoku.css" rel="stylesheet">
+{% endblock %}
+
+{% block main %}
+  <div id="main">
+    <!--Sudoku Board-->
+    <div class="container">
+      <form action="/solve" method="post" autocomplete="off" name="sudoku-board">
+        <table id="grid" class="center">
+            
+          {% for i in range(9) %}
+          
+            <tr>
+            
+              {% for j in range(9) %}
+                
+                {% if board[i][j] != 0 %}
+                
+                  <td><input id="cell-{{ 9*i + j }}" name="{{ 9*i + j }}" type="text" maxlength="1" value="{{ board[i][j] }}"></td>
+                  
+                {% else %}
+                
+                  <td><input id="cell-{{ 9*i + j }}" name="{{ 9*i + j }}" type="text" maxlength="1"></td>
+                
+                {% endif %}
+              
+              {% endfor %}
+            
+            </tr>
+            
+          {% endfor %}
+          
+        </table>
+        <br>
+        <p style="text-align: center;">
+          <button type="submit" style="display: inline-block">Solve</button>
+          <button type="reset" style="">Reset</button>
+        </p>
+        <p style="text-align: center; font-size: 13px;">Enter numbers</p>
+      </form>
+    </div>
+  </div>
+{% endblock %}
