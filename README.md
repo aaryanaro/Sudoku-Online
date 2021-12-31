@@ -11,9 +11,8 @@ Video Demo: <URL HERE>
 
 ## Usage Instructions
 ### Solve
-At the app route `/solve`, the defualt page, you can input sudoku boards for the application to solve. Once you
-
-input the board you want to solve, you can press the "solve" button. The application will solve your board and display it to
+At the app route `/solve`, the defualt page, you can input sudoku boards for the application to solve. Once you input the board you want to solve, you can press the "solve"  
+button. The application will solve your board and display it to
 
 you. Here, it shows you a "Board Code", which you can save to your clipboard for future usage. It allows you re-upload the
 
