@@ -19,7 +19,7 @@ At the app route `/play`, you are redirected to the defualt `/play/easy` screen,
 At the app route `/upload`, you are able to upload the save code given to you at either the "Solve" screen after you solved a board, or at the "Play" screen after you clicked on the "Save Game" button. After you write the code in the "Board Code" box,you chose from the dropdown menu whether the board is to Play with or to Solve. After you press the "Load Board" button, you are redirected to `/solve` or `/play` app routes and your progress is restored. 
 
 ## Technologies Used
- - Programming Languages: Python, JavaScript
+ - Programming Languages: Python
  - Framework: Flask
  - Frontend Development: HTML5, CSS3
  - Database: SQLite3
