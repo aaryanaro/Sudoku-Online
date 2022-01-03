@@ -5,7 +5,7 @@ Sudoku Online is a web application that allows you to play sudoku puzzles of var
 ## Important URLs
 Application URL: <URL HERE>
 
-Video Demo: <URL HERE>
+Video Demo: https://youtu.be/70X7AOPyqOw
 
 ## Usage Instructions
 ### Solve
