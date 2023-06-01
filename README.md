@@ -40,7 +40,7 @@ Solves Sudoku Board through usage of Hidden Singles and Naked Singles logical te
  - `solve.py`
 
 ## Future Implementations
-In order to make the solving algorithm more efficent, I might code more sudoku solving techniques as functions in my `solve.py` file. For instance, the "pointing pairs" technique and the "naked pairs" technique. This will the solving algorithm to resort to the "brute force" approach less, or at least give the "brute force" function more values, therefore decreasing the overall execution time.
+In order to make the solving algorithm more efficent, I might code more sudoku solving techniques as functions in my `solve.py` file. For instance, the "pointing pairs" technique and the "naked pairs" technique. This will delay the solving algorithm resorting to the recursive "brute force" approach, or at least give the "brute force" function more values, therefore decreasing the overall execution time.
 
 ## Credits
  - [Basic Sudoku Solving Techniques at Learn Sudoku](https://www.learn-sudoku.com/basic-techniques.html)
